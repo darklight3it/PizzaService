@@ -38,8 +38,7 @@ To your amusement Giulio's wife can store the orders in *JSON* format.
         "price": "5€",
         "amount": 1
     }]
-},
-{
+}, {
     "id": "123457",
     "deliveryTime": "25.11.2017 20:20:00",
     "type": "delivery",
@@ -63,5 +62,18 @@ To your amusement Giulio's wife can store the orders in *JSON* format.
 ### Requirements
 
 * Create an endpoint/controller that reads from this json file and shows the output to Giulio in this format:
+
+```
+**ORDER**
+ID
+TYPE
+PRODUCTS (type, amount)
+ADDRESS
+TOTALPRICE
+```
+
+* Create a method that save 
+
+
 
 
