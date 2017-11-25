@@ -26,39 +26,38 @@ Your old time friend Giulio, has recently opened a small business called **Pizza
 To your amusement Giulio's wife can store the orders in *JSON* format.
 
 ```json
-{
-    id: "123456",
-    deliveryTime: "25.11.2017 20:00:00",
-    type: "takeaway",
-    totalPrice: "5€",
-    name: "Alice",
-    surName: "Rossi"
-    products: [{
-        type: "Pizza Margerita"
-        price: "5€"
-        amount: 1
+[{
+    "id": "123456",
+    "deliveryTime": "25.11.2017 20:00:00",
+    "type": "takeaway",
+    "totalPrice": "5€",
+    "name": "Alice",
+    "surName": "Rossi",
+    "products": [{
+        "type": "Pizza Margerita",
+        "price": "5€",
+        "amount": 1
     }]
-}
+},
 {
-    id: "123457",
-    deliveryTime: "25.11.2017 20:20:00",
-    type: "delivery",
-    totalPrice: "8€",
-    name: "Marco",
-    surName: "Bianchetti"
-    address: "via vittorio veneto, 15"
-    products: [{
-        type: "Pizza Margerita"
-        price: "5€"
-        amount: 1
-    },
-    products: [{
-        type: "Coke"
-        price: "5€"
-        amount: 1
-        capacity: "33cl"
+    "id": "123457",
+    "deliveryTime": "25.11.2017 20:20:00",
+    "type": "delivery",
+    "totalPrice": "8€",
+    "name": "Marco",
+    "surName": "Bianchetti",
+    "address": "via vittorio veneto, 15",
+    "products": [{
+        "type": "Pizza Margerita",
+        "price": "5€",
+        "amount": 1
+    },{
+        "type": "Coke",
+        "price": "3€",
+        "amount": 1,
+        "capacity": "33cl"
     }]
-}
+}]
 ```
 
 ### Requirements
