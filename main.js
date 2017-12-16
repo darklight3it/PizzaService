@@ -1,0 +1,25 @@
+/*
+step 1:
+Sviluppare un applicazione che riceve in input il percorso del file json, una data di inizio e una data di fine così da definire un periodo temporale.
+Dovrà stampare in output l'elenco degli ordini relativi al periodo temporale (estremi inclusi) ordinati per orderTime.
+Per ogni ordine dovrà stampare:
+
+<orderTime> <customer>
+
+L'applicazione si usa in questo modo:
+
+PIZZAPRINT.EXE "path to JSON file" "start date" "end date"
+ex: PIZZAPRINT.EXE c:\orders.json 2017-11-24 2017-11-25
+*/
+
+'use strict';
+// vendor
+import minimist from 'minimist';
+const argv = minimist(process.argv.slice(2));
+
+//deps
+import dataService from './src/services/fs-data-service.js';
+import app from './src/app.js';
+
+app.start(argv, dataService);
+

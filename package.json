@@ -2,9 +2,12 @@
   "name": "pizzaservice",
   "version": "0.0.1",
   "description": "recruitment exercise in nodejs",
-  "main": "./src/main.js",
+  "main": "main.js",
   "scripts": {
-    "test": "test"
+    "babel-node": "babel-node --presets=env",
+    "start": "nodemon main.js --path=./data/orders.json --from=2017/11/24 --to=2017/11/25 --exec babel-node",
+    "build": "babel src -d dist",
+    "test": "mocha --compilers js:babel-register"
   },
   "repository": {
     "type": "git",
@@ -15,5 +18,18 @@
   "bugs": {
     "url": "https://github.com/darklight3it/PizzaService/issues"
   },
-  "homepage": "https://github.com/darklight3it/PizzaService#readme"
+  "homepage": "https://github.com/darklight3it/PizzaService#readme",
+  "dependencies": {
+    "fs-readfile-promise": "^3.0.0",
+    "prettyJson": "^1.0.9"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-register": "^6.26.0",
+    "chai": "^4.1.2",
+    "minimist": "^1.2.0",
+    "mocha": "^4.0.1",
+    "sinon": "^4.1.3"
+  }
 }
