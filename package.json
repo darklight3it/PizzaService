@@ -1,0 +1,19 @@
+{
+  "name": "pizzaservice",
+  "version": "0.0.1",
+  "description": "recruitment exercise in nodejs",
+  "main": "./src/main.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/darklight3it/PizzaService.git"
+  },
+  "author": "Davide Melfi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/darklight3it/PizzaService/issues"
+  },
+  "homepage": "https://github.com/darklight3it/PizzaService#readme"
+}
