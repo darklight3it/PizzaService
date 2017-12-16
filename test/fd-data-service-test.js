@@ -30,7 +30,7 @@ describe('getJSON', () => {
 
     dataService.getJSON('')
       .catch(() => {
-        chai.assert.ok();
+        chai.assert.ok(true);
       }).then(done, done);
   });
 });
