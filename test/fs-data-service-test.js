@@ -5,11 +5,11 @@ import dataService from '../src/services/fs-data-service.js';
 
 describe('getJSON', () => {
   var sandBox = sinon.sandbox.create();
-  var readFileSpy;
+  var readFileStub;
 
   beforeEach(() => {
     // stub out the `hello` method
-    readFileSpy = sandBox.stub(dataService.deps, 'readFile')
+    readFileStub = sandBox.stub(dataService.deps, 'readFile');
   });
 
   afterEach(() => {
@@ -17,17 +17,16 @@ describe('getJSON', () => {
   });
 
   it('should retrieve a file from provided url', (done) => {
-    readFileSpy.returns(Promise.resolve('{}'));
+    readFileStub.returns(Promise.resolve('{"orderId":1}'));
   
     dataService.getJSON('path')
       .then((data) => {
-        sinon.assert.calledWith(readFileSpy, 'path');
+        sinon.assert.calledWith(readFileStub, 'path');
+        chai.assert.equal(data.orderId, 1);
       }).then(done, done);
   });
 
   it('should reject when the url is empty', (done) => {
-    readFileSpy.returns(Promise.resolve('{}'));
-
     dataService.getJSON('')
       .catch(() => {
         chai.assert.ok(true);

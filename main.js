@@ -19,7 +19,8 @@ const argv = minimist(process.argv.slice(2));
 
 //deps
 import dataService from './src/services/fs-data-service.js';
+import ordersUtils from './src/utils/orders-utils.js';
 import app from './src/app.js';
 
-app.start(argv, dataService);
+app.start(argv, dataService, ordersUtils);
 
