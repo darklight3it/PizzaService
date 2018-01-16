@@ -1,23 +1,15 @@
 'use strict';
-//import prettyjson from 'prettyJson';
-
-const start = (argv, dataService, ordersUtils) => {
-
-  dataService.getJSON(argv.path)
-    .then((data) => {
-      Object.assign(data, ordersUtils);
-      // return data.orders.orderByDate(argv.from, argv.to);
-    })
-    .then((data) => console.log(data));
-  //  .then((data) => console.log(prettyjson.render(data, {})));
-};
 
 const getOrders = (argv, dataService, ordersUtils) => dataService.getJSON(argv.path)
-  .then(data => {
-    Object.assign(data.orders, ordersUtils);
-    return data.orders;
-   //return data.orders.orderByDate(argv.from, argv.to);
-  });
+  .then(data => enhanceOrders(data, ordersUtils))
+  .then(orders => orders.orderByDate(argv.from, argv.to));
 
 
-export default { start, getOrders };
+const enhanceOrders = (data, ordersUtils) => {
+  const orders = data.orders;
+  Object.assign(orders, ordersUtils);
+  orders.orderByDate.bind(orders);
+  return orders;
+}
+
+export default { getOrders };
