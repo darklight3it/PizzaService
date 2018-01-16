@@ -19,12 +19,12 @@ describe('start', () => {
     sandBox.restore();
   });
 
-  it('should retrieve all the orders if date are not provided', (done) => {
+  it('should log all the orders if date are not provided', (done) => {
     getJSONStub.returns(Promise.resolve('{"orderId":1}'));
 
-    app.start('path', dataService)
-      .then((data) => {
-        chai.AssertionError.ok();
-      }).then(done, done);
+    app.start('path', dataService);
+
+    
+
   });
 });

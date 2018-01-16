@@ -2,7 +2,10 @@
 import moment from 'moment';
 
 const orderUtils = {
-  orderByDate: (fromDate, toDate) => this.filter((order) => moment(order.orderTime).isBetween(fromDate, toDate))
+  orderByDate: (fromDate, toDate) => {
+    console.log(this)
+    this.filter((order) => moment(order.orderTime).isBetween(fromDate, toDate)
+  )}
 }; 
 
-export default { orderUtils };
+export default orderUtils;

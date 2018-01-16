@@ -7,7 +7,7 @@
     "babel-node": "babel-node --presets=env",
     "start": "nodemon main.js --path=./data/orders.json --from=2017-11-24 --to=2017-11-25 --exec babel-node",
     "build": "babel src -d dist",
-    "test": "mocha --compilers js:babel-register"
+    "test": "mocha --inspect-brk --compilers js:babel-register"
   },
   "repository": {
     "type": "git",
@@ -21,7 +21,7 @@
   "homepage": "https://github.com/darklight3it/PizzaService#readme",
   "dependencies": {
     "fs-readfile-promise": "^3.0.0",
-    "prettyJson": "^1.0.9",
+    "json-beautify": "^1.0.1",
     "moment": "^2.19.4"
   },
   "devDependencies": {

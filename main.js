@@ -15,6 +15,7 @@ ex: PIZZAPRINT.EXE c:\orders.json 2017-11-24 2017-11-25
 'use strict';
 // vendor
 import minimist from 'minimist';
+import beautify from 'json-beautify';
 const argv = minimist(process.argv.slice(2));
 
 //deps
@@ -22,5 +23,7 @@ import dataService from './src/services/fs-data-service.js';
 import ordersUtils from './src/utils/orders-utils.js';
 import app from './src/app.js';
 
-app.start(argv, dataService, ordersUtils);
+app.getOrders(argv, dataService, ordersUtils)
+    .then(orders => console.log(beautify(orders, null, 2, 100)));
+
 
