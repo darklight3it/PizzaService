@@ -8,7 +8,6 @@ const getOrders = (argv, dataService, ordersUtils) => dataService.getJSON(argv.p
 const enhanceOrders = (data, ordersUtils) => {
   const orders = data.orders;
   Object.assign(orders, ordersUtils);
-  orders.orderByDate.bind(orders);
   return orders;
 }
 
