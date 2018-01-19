@@ -7,7 +7,8 @@
     "babel-node": "babel-node --presets=env",
     "start": "nodemon main.js --path=./data/orders.json --from=2017-11-24 --to=2017-11-25 --exec babel-node",
     "build": "babel src -d dist",
-    "test": "mocha --inspect-brk --compilers js:babel-register"
+    "test": "mocha --compilers js:babel-register",
+    "testdebug": "mocha --inspect-brk --compilers js:babel-register"
   },
   "repository": {
     "type": "git",

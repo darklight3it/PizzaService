@@ -12,7 +12,7 @@ const getJSON = (path) => {
   }
 
   return deps.readFile(path, 'utf8')
-  .then((readFile) => JSON.parse(readFile));
+    .then((readFile) => JSON.parse(readFile));
 };
 
 export default { getJSON, deps};

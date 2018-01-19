@@ -24,6 +24,4 @@ import ordersUtils from './src/utils/orders-utils.js';
 import app from './src/app.js';
 
 app.getOrders(argv, dataService, ordersUtils)
-    .then(orders => console.log(beautify(orders, null, 2, 100)));
-
-
+  .then(orders => console.log(beautify(orders, null, 2, 100)));
