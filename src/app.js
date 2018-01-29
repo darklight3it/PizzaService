@@ -1,7 +1,7 @@
 'use strict';
 
 const getOrders = (argv, dataService, ordersUtils) => dataService.getJSON(argv.path)
-  .then(data => enhanceOrders(data, ordersUtils))
+  .then((data) => enhanceOrders(data, ordersUtils))
   .then(ordersObj => ordering(ordersObj, argv));
 
 //#region Private Members
