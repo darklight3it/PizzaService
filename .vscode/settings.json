@@ -1,0 +1,9 @@
+{
+    "mocha.options":{
+        "compilers": {
+            "js": "babel-register"
+        }
+    },
+    "mocha.requires": ["babel-register"],
+    "mocha.runTestsOnSave": "true",
+}

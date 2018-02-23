@@ -1,12 +1,10 @@
 'use strict';
 import sinon from 'sinon';
-import chai from 'chai';
 import app from '../src/app.js';
 
 describe('start', () => {
   let getJSONStub;
-  let dataService = { getJSON: function (params) { } };
-  let orderUtils = { orderByDate: function () { } };
+  let dataService = { getJSON: function(params) { } };
   let sandBox = sinon.sandbox.create();
   let fakeOrder = {
     orders: [{ 'orderId': 1, 'orderTime': '2017-11-24 11:00' }]
@@ -24,27 +22,29 @@ describe('start', () => {
 
   it('should get all the orders if date are not provided', (done) => {
     getJSONStub.returns(Promise.resolve(fakeOrder));
-    var orderByDateSpy = sinon.spy(orderUtils, 'orderByDate');
+    
+    let orderByDateSpy = sinon.spy();
+    let orderUtils = { 'orderByDate': orderByDateSpy };
 
     app.getOrders({ path: 'path' }, dataService, orderUtils)
       .then(orders => {
         sinon.assert.notCalled(orderByDateSpy);
       })
       .then(done, done);
-
-    orderByDateSpy.restore();
   });
 
   it('should order by date if dates are provided', (done) => {
     getJSONStub.returns(Promise.resolve(fakeOrder));
-    var orderByDateSpy = sinon.spy(orderUtils, 'orderByDate');
+    
+    let orderByDateSpy = sinon.spy();
+    let orderUtils = { 'orderByDate': orderByDateSpy };
 
-    app.getOrders({ path: 'path', from: '2017-11-24', to: '2017-11-25'} , dataService, orderUtils)
+    app.getOrders({ path: 'path', from: '2017-11-24', to: '2017-11-25'}, dataService, orderUtils)
       .then(orders => {
-        sinon.assert.calledOnce(orderByDateSpy);
+        sinon.assert.calledWith(orderByDateSpy, '2017-11-24', '2017-11-25');
       })
       .then(done, done);
 
-    orderByDateSpy.restore();
+    //orderByDateSpy.restore();
   });
 });
