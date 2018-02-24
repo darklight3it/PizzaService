@@ -16,7 +16,7 @@ ex: PIZZAPRINT.EXE c:\orders.json 2017-11-24 2017-11-25
 // vendor
 import minimist from 'minimist';
 import beautify from 'json-beautify';
-const argv = minimist(process.argv.slice(3));
+const argv = minimist(process.argv.slice(2));
 
 //deps
 import dataService from './src/services/fs-data-service.js';
