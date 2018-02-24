@@ -13,7 +13,7 @@ const orderUtils = {
   
   filterByDate: function(fromDate, toDate) {
     return this.filter(order =>
-      moment(order.orderTime).isBetween(fromDate, toDate)
+      moment(order.orderTime).isBetween(fromDate, toDate, null, '[]')
     );
   }
 

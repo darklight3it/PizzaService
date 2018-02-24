@@ -19,21 +19,26 @@ describe('OrderUtils', () => {
   });
 
   it('filterByDate should return all orders by date', () => {
-
     var result = orderObj.filterByDate('2017-01-01', '2019-01-01').toArray();
 
     chai.assert.equal(result.length, '2');
   });
 
   it('filterByDate should filter the number of dates', () => {
-
     var result = orderObj.filterByDate('2018-01-01', '2019-01-01').toArray();
 
     chai.assert.equal(result.length, '1');
   });
 
-  it('filterByDate should return no order at all if dates outside boundaries are chosen', () => {
+  it('filterByDate should include boundaries', () => {
+    var result = orderObj
+      .filterByDate('2017-11-24 11:00', '2018-11-24 11:00')
+      .toArray();
 
+    chai.assert.equal(result.length, '2');
+  });
+
+  it('filterByDate should return no order at all if dates outside boundaries are chosen', () => {
     var result = orderObj.filterByDate('2019-01-01', '2020-01-01').toArray();
 
     chai.assert.equal(result.length, '0');
