@@ -14,6 +14,7 @@ const ordering = (ordersObj, argv) => {
   return ordersObj
     .filterByDate(argv.from, argv.to)
     .sortBy(o => o.orderTime)
+    .map(o => ({'orderTime': o.orderTime, 'customer': o.customer}))
     .toArray();
 };
 

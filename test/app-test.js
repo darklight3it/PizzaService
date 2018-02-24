@@ -22,13 +22,14 @@ describe('start', () => {
   it('should get all the orders if date are not provided', done => {
     getJSONStub.returns(Promise.resolve(fakeOrder));
 
-    let enhancedObject = {};
+    let enhancedObject = { toArray: () => {} };
+    let mapStub = sandBox.stub().returns(enhancedObject);
     let filterByDateStub = sandBox.stub().returns(enhancedObject);
     let sortByStub = sandBox.stub().returns(enhancedObject);
 
     enhancedObject.filterByDate = filterByDateStub;
     enhancedObject.sortBy = sortByStub;
-    enhancedObject.toArray = function() {};
+    enhancedObject.map = mapStub;
 
     let enhanceOrders = () => enhancedObject;
 
@@ -44,13 +45,14 @@ describe('start', () => {
   it('should order by date if dates are provided', done => {
     getJSONStub.returns(Promise.resolve(fakeOrder));
 
-    let enhancedObject = {};
+    let enhancedObject = { toArray: () => {} };
+    let mapStub = sandBox.stub().returns(enhancedObject)
     let filterByDateStub = sandBox.stub().returns(enhancedObject);
     let sortByStub = sandBox.stub().returns(enhancedObject);
 
     enhancedObject.filterByDate = filterByDateStub;
     enhancedObject.sortBy = sortByStub;
-    enhancedObject.toArray = function() {};
+    enhancedObject.map = mapStub;
 
     let enhanceOrders = () => enhancedObject;
 
