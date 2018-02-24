@@ -5,7 +5,8 @@ import moment from 'moment';
 
 const enhanceOrders = (array) => {
   const list = List(array);
-  Object.assign(list, orderUtils);
+
+  Object.assign(List.prototype, orderUtils);
   return list;
 };
 

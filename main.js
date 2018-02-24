@@ -46,9 +46,9 @@ import beautify from 'json-beautify';
 const argv = minimist(process.argv.slice(2));
 
 //deps
-import dataService from './src/services/fs-data-service.js';
-import enhanceOrders from './src/utils/orders-utils.js';
+import dataService from './src/services/fs-data-service';
+import ordersStrategyFactory from './src/factories/ordersStrategyFactory';
 import app from './src/app.js';
 
-app.getOrders(argv, dataService, enhanceOrders)
+app.getOrders(argv, dataService, ordersStrategyFactory)
   .then(orders => console.log(beautify(orders, null, 2, 100)));
