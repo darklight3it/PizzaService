@@ -20,8 +20,8 @@ const argv = minimist(process.argv.slice(2));
 
 //deps
 import dataService from './src/services/fs-data-service.js';
-import ordersUtils from './src/utils/orders-utils.js';
+import enhanceOrders from './src/utils/orders-utils.js';
 import app from './src/app.js';
 
-app.getOrders(argv, dataService, ordersUtils)
+app.getOrders(argv, dataService, enhanceOrders)
   .then(orders => console.log(beautify(orders, null, 2, 100)));

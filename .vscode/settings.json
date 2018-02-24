@@ -4,6 +4,6 @@
             "js": "babel-register"
         }
     },
-    "mocha.requires": ["babel-register"],
+    "mocha.requires": ["babel-register", "babel-polyfill"],
     "mocha.runTestsOnSave": "true",
 }

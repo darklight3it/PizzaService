@@ -22,11 +22,13 @@
   "homepage": "https://github.com/darklight3it/PizzaService#readme",
   "dependencies": {
     "fs-readfile-promise": "^3.0.0",
+    "immutable": "^3.8.2",
     "json-beautify": "^1.0.1",
     "moment": "^2.19.4"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
+    "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.6.1",
     "babel-register": "^6.26.0",
     "chai": "^4.1.2",

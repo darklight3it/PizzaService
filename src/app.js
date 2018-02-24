@@ -1,23 +1,20 @@
 'use strict';
 
-const getOrders = (argv, dataService, ordersUtils) => dataService.getJSON(argv.path)
-  .then((data) => enhanceOrders(data, ordersUtils))
+const getOrders = (argv, dataService, enhanceOrders) => dataService.getJSON(argv.path)
+  .then((data) => enhanceOrders(data.orders))
   .then(ordersObj => ordering(ordersObj, argv));
 
 //#region Private Members
-
-const enhanceOrders = (data, ordersUtils) => {
-  const ordersObj = data.orders;
-  Object.assign(ordersObj, ordersUtils);
-  return ordersObj;
-};
 
 const ordering = (ordersObj, argv) => {
   if (!argv.from && !argv.to) {
     return ordersObj;
   }
 
-  return ordersObj.orderByDate(argv.from, argv.to);
+  return ordersObj
+    .filterByDate(argv.from, argv.to)
+    .sortBy(o => o.orderTime)
+    .toArray();
 };
 
 //#endregion
