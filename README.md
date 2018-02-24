@@ -115,6 +115,7 @@ To your amusement Giulio's wife can store the orders in *JSON* format.
 ### Requirement
 
 * Create an application that reads from this json file and shows the output to Giulio. Giulio needs them ordered by **orderTime**.
+* The output should only show the fields `<orderTime>` and `<customer>` of each entry.
 
 ## Milestone 2
 
@@ -123,8 +124,8 @@ After a month the business had increased its productivity thanks to your simple 
 ### Requirement
 
 * The same application should act differently according to a new parameter. The parameter types should be the following:
-  * **Cooking**:	Print only the orders containing an item of type **dish** by **deliveryTime** containing only [*deliveryTime*, *customer*, *name*, *quantity*].
-  * **Delivery**:	Print only the orders of type **takeaway** by **deliveryTime** containing only[*deliveryTime*,*customer*,*name*,*quantity*]. As a recap print also the total
+  * **Cooking**:	Print only the orders containing an item of type **dish** by **deliveryTime** containing only `deliveryTime`, `customer`, `name`, `quantity`.
+  * **Delivery**:	Print only the orders of type **takeaway** by **deliveryTime** containing only `deliveryTime`,`customer`,`name`,`quantity`. As a recap print also the total
   distance the pizza guy should drive for that orders.
   * **Payment**: Print all the orders by **deliveryTime** containing only (deliveryTime,customer,item list with quantity and price, delivery price, total price).
   * **Inventory** : Print a daily recap of the consumed product.
