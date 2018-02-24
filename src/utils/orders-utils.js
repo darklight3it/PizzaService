@@ -15,6 +15,9 @@ const orderUtils = {
     return this.filter(order =>
       moment(order.orderTime).isBetween(fromDate, toDate, null, '[]')
     );
+  },
+  sortByOrderTime: function() {
+    return this.sort((left, right) => moment(left.orderTime).diff(moment(right.orderTime)));
   }
 
 }; 
