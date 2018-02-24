@@ -46,7 +46,7 @@ describe('start', () => {
     getJSONStub.returns(Promise.resolve(fakeOrder));
 
     let enhancedObject = { toArray: () => {} };
-    let mapStub = sandBox.stub().returns(enhancedObject)
+    let mapStub = sandBox.stub().returns(enhancedObject);
     let filterByDateStub = sandBox.stub().returns(enhancedObject);
     let sortByStub = sandBox.stub().returns(enhancedObject);
 
