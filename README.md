@@ -124,10 +124,10 @@ After a month the business had increased its productivity thanks to your simple 
 ### Requirement
 
 * The same application should act differently according to a new parameter. The parameter types should be the following:
-  * **Cooking**:	Print only the orders containing an item of type **dish** by **deliveryTime** containing only `deliveryTime`, `customer`, `name`, `quantity`.
-  * **Delivery**:	Print only the orders of type **takeaway** by **deliveryTime** containing only `deliveryTime`,`customer`,`name`,`quantity`. As a recap print also the total
+  * **Cooking**:	Print only the orders containing an item of type **dish** by **deliveryTime** containing only `<deliveryTime>`, `<customer>`, `<name>` and `<quantity>`.
+  * **Delivery**:	Print only the orders of type **takeaway** by **deliveryTime** containing only `<deliveryTime>`,`<customer>`,`<name>` and `quantity`. As a recap print also the total
   distance the pizza guy should drive for that orders.
-  * **Payment**: Print all the orders by **deliveryTime** containing only (deliveryTime,customer,item list with quantity and price, delivery price, total price).
+  * **Payment**: Print all the orders by **deliveryTime** containing only `deliveryTime`, `customer`, `<items>`, `<delivery price>`, `<total price>`).
   * **Inventory** : Print a daily recap of the consumed product.
 
 ## Milestone 3
