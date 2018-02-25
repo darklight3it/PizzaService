@@ -8,10 +8,19 @@ const execute = (argv, data) => {
 };
 //#region Private Members
 
-const ordering = (argv, ordersObj) => ordersObj
+const ordering = (argv, ordersObj) =>
+  ordersObj
     .sortByTime(x => x.deliveryTime)
-    .map(o => ({ deliveryTime: o.deliveryTime, customer: o.customer, items: o.items }))
-    .filterByTime(x => x.deliveryTime, argv.from, argv.to).toArray();
+    .filterByTime(x => x.deliveryTime, argv.from, argv.to)
+    .flatMap(o =>
+      o.items.map(i => {
+        i.deliveryTime = o.deliveryTime;
+        i.customer = o.customer;
+        return i;
+      })
+    )
+    .filter(i => i.type.toLowerCase() === 'dish')
+    .toArray();
 
 //#endregion
 

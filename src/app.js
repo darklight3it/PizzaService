@@ -2,7 +2,7 @@
 
 const getOrders = (argv, dataService, ordersStrategyFactory) => dataService.getJSON(argv.path)
   .then((data) => ordersStrategyFactory
-    .create()
+    .create(argv.mode)
     .execute(argv, data))
   .catch((error) => console.log(error));
 
