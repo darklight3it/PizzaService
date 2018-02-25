@@ -1,6 +1,8 @@
 'use strict';
 import enhanceOrders from '../utils/orders-utils';
 
+const name = 'Default';
+
 const execute = (argv, data) => {
   return ordering(argv, enhanceOrders(data.orders));
 };
@@ -13,4 +15,4 @@ const ordering = (argv, ordersObj) => ordersObj
 
 //#endregion
 
-export default { execute };
+export default { name, execute };
