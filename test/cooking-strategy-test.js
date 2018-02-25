@@ -1,14 +1,14 @@
 'use strict';
 import sinon from 'sinon';
 import chai from 'chai';
-import strategy from '../src/strategies/default-strategy';
+import strategy from '../src/strategies/cooking-strategy';
 
-describe('default strategy execute', () => {
+describe('cooking strategy execute', () => {
   let sandBox = sinon.sandbox.create();
   let fakeOrder = {
     orders: [
-      { orderId: 1, orderTime: '2017-11-26 11:00', customer: 'Marco' },
-      { orderId: 2, orderTime: '2017-11-24 11:00', customer: 'Davide' }
+      { orderId: 1, deliveryTime: '2017-11-26 11:00', customer: 'Marco', items: [{name: 'pizza', quantity: 1}] },
+      { orderId: 2, deliveryTime: '2017-11-24 11:00', customer: 'Davide', items: [{name: 'patatine', quantity: 1}] }
     ]
   };
 
@@ -30,12 +30,13 @@ describe('default strategy execute', () => {
     chai.expect(result.orderId).to.be.undefined; 
   });
 
-  it('should order by date if dates are provided', () => {
+  it('should order by delivery date if dates are provided', () => {
     let argv = { path: 'path', from: '2017-11-24', to: '2017-11-25' };
     let result = strategy.execute(argv, fakeOrder);
 
     chai.assert.equal(result.length, 1);
     chai.assert.equal(result[0].customer, 'Davide');
+    chai.assert.equal(result[0].items[0].name, 'patatine');
     chai.expect(result.orderId).to.be.undefined;
     
   });

@@ -1,8 +1,8 @@
 'use strict';
-import {List} from 'immutable';
+import { List } from 'immutable';
 import moment from 'moment';
 
-const enhanceOrders = (array) => {
+const enhanceOrders = array => {
   const list = List(array);
 
   Object.assign(List.prototype, orderUtils);
@@ -10,15 +10,19 @@ const enhanceOrders = (array) => {
 };
 
 const orderUtils = {
-  
-  filterByDate: function(fromDate, toDate) {
+  filterByOrderTime: function(fromDate, toDate) {
+    return this.filterByTime(x => x.orderTime, fromDate, toDate);
+  },
+  filterByTime: function(fn, fromDate, toDate) {
     return this.filter(order =>
-      moment(order.orderTime).isBetween(fromDate, toDate, null, '[]')
+      moment(fn(order)).isBetween(fromDate, toDate, null, '[]')
     );
   },
   sortByOrderTime: function() {
-    return this.sort((left, right) => moment(left.orderTime).diff(moment(right.orderTime)));
+    return this.sortByTime(x => x.orderTime);
+  },
+  sortByTime: function(fn) {
+    return this.sort((left, right) => moment(fn(left)).diff(moment(fn(right))));
   }
-
-}; 
+};
 export default enhanceOrders;
