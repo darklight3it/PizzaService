@@ -6,18 +6,10 @@ const execute = (argv, data) => {
 };
 //#region Private Members
 
-const ordering = (argv, ordersObj) => {
-  
-  let result = ordersObj
+const ordering = (argv, ordersObj) => ordersObj
     .sortByTime(x => x.deliveryTime)
-    .map(o => ({ deliveryTime: o.deliveryTime, customer: o.customer, items: o.items }));
-
-  if (!argv.from && !argv.to) {
-    return result.toArray();
-  }
-
-  return result.filterByTime(x => x.deliveryTime, argv.from, argv.to).toArray();
-};
+    .map(o => ({ deliveryTime: o.deliveryTime, customer: o.customer, items: o.items }))
+    .filterByTime(x => x.deliveryTime, argv.from, argv.to).toArray();
 
 //#endregion
 

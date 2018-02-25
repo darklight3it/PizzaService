@@ -47,7 +47,7 @@ const argv = minimist(process.argv.slice(2));
 
 //deps
 import dataService from './src/services/fs-data-service';
-import ordersStrategyFactory from './src/factories/ordersStrategyFactory';
+import ordersStrategyFactory from './src/factories/orders-strategy-factory';
 import app from './src/app.js';
 
 app.getOrders(argv, dataService, ordersStrategyFactory)

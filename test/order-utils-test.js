@@ -63,7 +63,7 @@ describe('filterByTime', () => {
     sandBox.restore();
   });
 
-  it('should return all orders by date', () => {
+  it('should return all orders by date if the boundaries is big enough', () => {
     var result = orderObj
     .filterByTime(x => x.orderTime, '2017-01-01', '2019-01-01')
     .toArray();
@@ -93,6 +93,14 @@ describe('filterByTime', () => {
       .toArray();
 
     chai.assert.equal(result.length, 0);
+  });
+
+  it('should not filter if dates are not provided', () => {
+    var result = orderObj
+      .filterByTime(x => x.orderTime)
+      .toArray();
+
+    chai.assert.equal(result.length, 2);
   });
 
 });

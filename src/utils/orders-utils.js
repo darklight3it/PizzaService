@@ -14,6 +14,11 @@ const orderUtils = {
     return this.filterByTime(x => x.orderTime, fromDate, toDate);
   },
   filterByTime: function(fn, fromDate, toDate) {
+
+    if (!fromDate || !toDate) {
+      return this;
+    }
+
     return this.filter(order =>
       moment(fn(order)).isBetween(fromDate, toDate, null, '[]')
     );
