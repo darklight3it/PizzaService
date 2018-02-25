@@ -1,11 +1,13 @@
 'use strict';
 import sinon from 'sinon';
+import chai from 'chai';
 import app from '../src/app.js';
 
 describe('start', () => {
   let getJSONStub;
   let createStub;
   let executeStub;
+  let logStub;
   let dataService = { getJSON: () => {} };
   let ordersStrategyFactory = { create: () => {} };
   let strategy = { execute: () => {} };
@@ -19,6 +21,7 @@ describe('start', () => {
     getJSONStub = sandBox.stub(dataService, 'getJSON');
     createStub = sandBox.stub(ordersStrategyFactory, 'create');
     executeStub = sandBox.stub(strategy, 'execute');
+    logStub = sandBox.stub(console, 'log');
   });
 
   afterEach(() => {
@@ -38,5 +41,24 @@ describe('start', () => {
         sinon.assert.called(executeStub);
       })
       .then(done, done);
+  });
+
+  it('should block and print errors if getjson is rejected', done => {
+    
+    getJSONStub.returns(Promise.reject(new Error('Error in GetJson')));
+    createStub.returns(strategy);
+    let argv = {};
+
+    app
+      .getOrders(argv, dataService, ordersStrategyFactory)
+      .then(() => {
+        chai.expect.fail();
+        
+      }, () => {
+        sinon.assert.called(getJSONStub);
+        sinon.assert.called(logStub);
+        sinon.assert.notCalled(createStub);
+        sinon.assert.notCalled(executeStub);
+      }).finally(done);
   });
 });

@@ -1,9 +1,9 @@
 'use strict';
 import enhanceOrders from '../utils/orders-utils';
 
-const execute = (argv, data) =>
-  ordering(argv, enhanceOrders(data.orders));
-
+const execute = (argv, data) => {  
+  return ordering(argv, enhanceOrders(data.orders)); 
+};
 //#region Private Members
 
 const ordering = (argv, ordersObj) => {

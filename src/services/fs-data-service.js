@@ -8,7 +8,7 @@ const deps = {
 const getJSON = (path) => {
 
   if (!path) {
-    return Promise.reject();
+    return Promise.reject(new Error('Specify Path !'));
   }
 
   return deps.readFile(path, 'utf8')
