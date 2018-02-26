@@ -9,9 +9,9 @@ const execute = (argv, data) => {
 //#region Private Members
 
 const ordering = (argv, ordersObj) => ordersObj
-    .sortByOrderTime()
-    .map(o => ({ orderTime: o.orderTime, customer: o.customer }))
-    .filterByOrderTime(argv.from, argv.to).toArray();
+  .sortByOrderTime()
+  .map(o => ({ orderTime: o.orderTime, customer: o.customer }))
+  .filterByOrderTime(argv.from, argv.to).toArray();
 
 //#endregion
 
