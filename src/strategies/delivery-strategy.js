@@ -20,7 +20,7 @@ const ordering = (argv, ordersObj) => {
 
 const getTotalQuantity = (items) => items.map(i => i.quantity).reduce((a, b) => a + b); 
 const getTotalPrice = (items) => items.map(i => i.unitPrice * i.quantity).reduce((a, b) => a + b);
-const getDistanceInKms = distance => (distance.includes('km') ? 1 : 0.001) * distance.match(/\d+/)[0];
+const getDistanceInKms = distance => (distance.includes('km') ? 1 : 0.001) * distance.match(/[+-]?([0-9]*[.])?[0-9]+/)[0];
 const getTotalDistance = (orders) => orders.map(o => getDistanceInKms(o.distance)).reduce((a, b) => a + b);
 
 //#endregion
