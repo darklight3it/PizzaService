@@ -1,11 +1,13 @@
 'use strict';
-import defaultStrategy from '../strategies/default-strategy';
-import cookingStrategy from '../strategies/cooking-strategy';
-import deliveryStrategy from '../strategies/delivery-strategy';
+import requireDir from 'require-dir';
 
-const strategies = [defaultStrategy, cookingStrategy, deliveryStrategy];
+const defaultStrategyName = 'Default';
+const strategyObj = requireDir('../strategies/');
+const strategies = Object.keys(strategyObj).map(key => strategyObj[key]).map(x => x.default);
 
-const create = (strategyName = 'Default') => strategies.find(x => stringEquals(x.name, strategyName)) || defaultStrategy;
+const create = (strategyName = defaultStrategyName) =>
+  strategies.find(x => stringEquals(x.name, strategyName)) ||
+  strategies.find(x => stringEquals(x.name, defaultStrategyName));
  
 //#region Private Members
 const stringEquals = (a, b) => a.toUpperCase() === b.toUpperCase();

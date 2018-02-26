@@ -26,7 +26,8 @@
     "fs-readfile-promise": "^3.0.0",
     "immutable": "^3.8.2",
     "json-beautify": "^1.0.1",
-    "moment": "^2.19.4"
+    "moment": "^2.19.4",
+    "require-dir": "^1.0.0"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",

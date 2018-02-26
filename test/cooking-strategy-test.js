@@ -7,9 +7,9 @@ describe('Cooking Strategy', () => {
   describe('execute', () => {
     let sandBox = sinon.sandbox.create();
     let fakeOrder = { orders: [
-    { orderId: 1, deliveryTime: '2017-11-26 11:00', customer: 'Marco', items: [{ name: 'pizza', type: 'dish', quantity: 1 }] }, 
-    { orderId: 2, deliveryTime: '2017-11-24 11:00', customer: 'Davide', items: [{ name: 'patatine', type: 'dish', quantity: 1 }] }, 
-    { orderId: 3, deliveryTime: '2017-11-24 11:00', customer: 'Giulio', items: [{ name: 'Coca Cola', type: 'beverage', quantity: 1 }] }] };
+      { orderId: 1, deliveryTime: '2017-11-26 11:00', customer: 'Marco', items: [{ name: 'pizza', type: 'dish', quantity: 1 }] }, 
+      { orderId: 2, deliveryTime: '2017-11-24 11:00', customer: 'Davide', items: [{ name: 'patatine', type: 'dish', quantity: 1 }] }, 
+      { orderId: 3, deliveryTime: '2017-11-24 11:00', customer: 'Giulio', items: [{ name: 'Coca Cola', type: 'beverage', quantity: 1 }] }] };
 
     beforeEach(() => {
       // stub out the `hello` method
@@ -25,6 +25,7 @@ describe('Cooking Strategy', () => {
 
       chai.assert.equal(result.length, 2);
       chai.assert.equal(result[0].customer, 'Davide');
+      
       chai.assert.equal(result[1].customer, 'Marco');
       chai.expect(result.orderId).to.be.undefined;
     });

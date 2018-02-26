@@ -1,9 +1,9 @@
 {
-    "mocha.options":{
-        "compilers": {
-            "js": "babel-register"
-        }
-    },
-    "mocha.requires": ["babel-register", "babel-polyfill"],
-    "mocha.runTestsOnSave": "true",
+  "mocha.requires": ["babel-register", "babel-polyfill"],
+  "mocha.options": {
+    "compilers": {
+      "js": "babel-register"
+    }
+  },
+  "mocha.runTestsOnSave": "true"
 }
