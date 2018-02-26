@@ -3,7 +3,7 @@ import requireDir from 'require-dir';
 
 const defaultStrategyName = 'Default';
 const strategyObj = requireDir('../strategies/');
-const strategies = Object.keys(strategyObj).map(key => strategyObj[key]).map(x => x.default);
+const strategies = Object.keys(strategyObj).map(key => strategyObj[key].default);
 
 const create = (strategyName = defaultStrategyName) =>
   strategies.find(x => stringEquals(x.name, strategyName)) ||
