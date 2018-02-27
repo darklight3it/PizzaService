@@ -1,7 +1,7 @@
 'use strict';
 import sinon from 'sinon';
 import chai from 'chai';
-import enhanceOrders from '../src/utils/orders-utils.js';
+import { enhanceOrders } from '../src/utils/orders-utils.js';
 
 describe('Order Utils', () => {
   describe('filterByOrderTime', () => {

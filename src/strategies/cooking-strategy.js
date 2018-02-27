@@ -1,5 +1,5 @@
 'use strict';
-import enhanceOrders from '../utils/orders-utils';
+import { enhanceOrders } from '../utils/orders-utils';
 
 const name = 'Cooking';
 
