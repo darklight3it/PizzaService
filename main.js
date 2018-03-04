@@ -39,7 +39,6 @@ step 4:
 Integrare un nuovo tipo di elaborazione.
 */
 
-'use strict';
 // vendor
 import minimist from 'minimist';
 import beautify from 'json-beautify';

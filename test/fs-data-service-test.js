@@ -1,4 +1,3 @@
-'use strict';
 import sinon from 'sinon';
 import chai from 'chai';
 import dataService from '../src/services/fs-data-service.js';

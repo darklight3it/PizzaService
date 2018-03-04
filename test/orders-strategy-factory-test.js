@@ -1,4 +1,3 @@
-'use strict';
 import sinon from 'sinon';
 import chai from 'chai';
 import factory from '../src/factories/orders-strategy-factory';

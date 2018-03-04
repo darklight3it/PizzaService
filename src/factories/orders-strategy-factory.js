@@ -1,4 +1,3 @@
-'use strict';
 import requireDir from 'require-dir';
 
 const defaultStrategyName = 'Default';

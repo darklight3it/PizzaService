@@ -1,4 +1,3 @@
-'use strict';
 import { enhanceOrders, getOrderTotalPrice, getOrderTotalQuantity, getDeliveryPrice } from '../utils/orders-utils';
 
 const name = 'Payment';

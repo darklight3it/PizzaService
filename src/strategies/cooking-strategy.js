@@ -1,4 +1,3 @@
-'use strict';
 import { enhanceOrders } from '../utils/orders-utils';
 
 const name = 'Cooking';

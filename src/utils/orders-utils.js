@@ -1,4 +1,3 @@
-'use strict';
 import { List } from 'immutable';
 import moment from 'moment';
 

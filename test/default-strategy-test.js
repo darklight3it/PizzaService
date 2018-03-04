@@ -1,4 +1,3 @@
-'use strict';
 import sinon from 'sinon';
 import chai from 'chai';
 import strategy from '../src/strategies/default-strategy';
