@@ -36,7 +36,7 @@ const orderUtils = {
 };
 
 const getOrderTotalQuantity = order => order.items.map(i => i.quantity).reduce((a, b) => a + b); 
-const getOrderTotalPrice = order => order.items.map(i => i.unitPrice * i.quantity).reduce((a, b) => a + b)
+const getOrderTotalPrice = order => order.items.map(i => i.unitPrice * i.quantity).reduce((a, b) => a + b);
 const getDeliveryPrice = order => order.type.toLowerCase() === 'takeaway' ? unitPricePerKm * convertOrderDistanceInKm(order.distance) : 0;
 ;
 

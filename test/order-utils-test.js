@@ -1,7 +1,10 @@
 'use strict';
 import sinon from 'sinon';
 import chai from 'chai';
-import { enhanceOrders } from '../src/utils/orders-utils.js';
+import {
+  enhanceOrders,
+  getOrderTotalQuantity
+} from '../src/utils/orders-utils.js';
 
 describe('Order Utils', () => {
   describe('filterByOrderTime', () => {
@@ -159,6 +162,29 @@ describe('Order Utils', () => {
       chai.assert.equal(result[2].orderId, 2);
       chai.assert.equal(result[3].orderId, 4);
       chai.assert.equal(result[4].orderId, 5);
+    });
+  });
+
+  describe('getOrderTotalQuantity', () => {
+    let sandBox = sinon.sandbox.create();
+    let orderObj = enhanceOrders([
+      {
+        orderId: 5,
+        orderTime: '2021-01-20 11:00',
+        items: [{ quantity: 1 }, { quantity: 2 }]
+      }
+    ]);
+
+    beforeEach(() => {
+      // stub out the `hello` method
+    });
+
+    afterEach(() => {
+      sandBox.restore();
+    });
+
+    it('Should evalute the total quantity of items of an order', () => {
+      chai.assert.equal(getOrderTotalQuantity(orderObj.first()), 3, 'Wrong order quantity');
     });
   });
 });
