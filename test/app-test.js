@@ -1,6 +1,5 @@
 'use strict';
 import sinon from 'sinon';
-import chai from 'chai';
 import app from '../src/app.js';
 
 describe('App', () => {
