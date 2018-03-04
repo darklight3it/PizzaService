@@ -52,17 +52,17 @@ describe('App', () => {
       app
         .getOrders(argv, dataService, ordersStrategyFactory)
         .then(
-          () => {
-            chai.expect.fail();
+          () => {         
           },
           () => {
             sinon.assert.called(getJSONStub);
             sinon.assert.called(logStub);
             sinon.assert.notCalled(createStub);
             sinon.assert.notCalled(executeStub);
+            done();
           }
         )
-        .finally(done);
+        .then(done, done);
     });
   });
 });

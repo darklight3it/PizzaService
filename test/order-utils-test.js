@@ -1,10 +1,7 @@
 'use strict';
 import sinon from 'sinon';
 import chai from 'chai';
-import {
-  enhanceOrders,
-  getOrderTotalQuantity
-} from '../src/utils/orders-utils.js';
+import { enhanceOrders, getOrderTotalQuantity, getOrderTotalPrice, getDeliveryPrice } from '../src/utils/orders-utils.js';
 
 describe('Order Utils', () => {
   describe('filterByOrderTime', () => {
@@ -185,6 +182,61 @@ describe('Order Utils', () => {
 
     it('Should evalute the total quantity of items of an order', () => {
       chai.assert.equal(getOrderTotalQuantity(orderObj.first()), 3, 'Wrong order quantity');
+    });
+  });
+
+  describe('getOrderTotalPrice', () => {
+    let sandBox = sinon.sandbox.create();
+    let orderObj = enhanceOrders([
+      {
+        orderId: 5,
+        orderTime: '2021-01-20 11:00',
+        items: [{ quantity: 1, unitPrice: 0.2}, { quantity: 2, unitPrice: 0.3 }]
+      }
+    ]);
+
+    beforeEach(() => {
+      // stub out the `hello` method
+    });
+
+    afterEach(() => {
+      sandBox.restore();
+    });
+
+    it('Should evalute the total price of items of an order', () => {
+      chai.assert.equal(getOrderTotalPrice(orderObj.first()), 0.8, 'Wrong total price');
+    });
+  });
+
+  describe('getDeliveryPrice', () => {
+    let sandBox = sinon.sandbox.create();
+    let orderObj = enhanceOrders([
+      {
+        orderId: 5,
+        orderTime: '2021-01-20 11:00',
+        type: 'takeaway',
+        items: [{ quantity: 1, unitPrice: 0.2}, { quantity: 2, unitPrice: 0.3 }],
+        distance: '1.6 km'
+      },
+      {
+        orderId: 6,
+        orderTime: '2021-01-20 11:00',
+        type: 'pickup_in_store',
+        items: [{ quantity: 1, unitPrice: 0.2}, { quantity: 2, unitPrice: 0.3 }]
+      }
+    ]);
+
+    beforeEach(() => {
+      // stub out the `hello` method
+    });
+
+    afterEach(() => {
+      sandBox.restore();
+    });
+
+    it('Should evalute the delivery price of an order', () => {
+      chai.assert.equal(getDeliveryPrice(orderObj.first()), 1.6, 'Wrong delivery price');
+      chai.assert.equal(getDeliveryPrice(orderObj.get(1)), 0, 'Wrong delivery price');
     });
   });
 });
