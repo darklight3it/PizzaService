@@ -1,88 +1,88 @@
 {
-    "orders": [
+  "orders": [
+    {
+      "customer": "Luigi",
+      "type": "pickup_in_store",
+      "orderTime": "2017-11-24 10:00",
+      "deliveryTime": "2017-11-24 13:00",
+      "items": [
         {
-            "customer": "Luigi",
-            "type": "pickup_in_store",
-            "orderTime": "2017-11-24 10:00",
-            "deliveryTime": "2017-11-24 13:00",
-            "items": [
-                {
-                    "type": "drink",
-                    "name": "beer",
-                    "quantity": 2,
-                    "unitPrice": 3.5
-                },
-                {
-                    "type": "drink",
-                    "name": "water",
-                    "quantity": 1,
-                    "unitPrice": 1.0
-                },
-                {
-                    "type": "dish",
-                    "name": "pizza",
-                    "quantity": 3,
-                    "unitPrice": 7.0
-                }
-            ]
+          "type": "drink",
+          "name": "beer",
+          "quantity": 2,
+          "unitPrice": 3.5
         },
         {
-            "customer": "Guido",
-            "type": "pickup_in_store",
-            "orderTime": "2017-11-24 10:30",
-            "deliveryTime": "2017-11-24 12:30",
-            "items": [
-                {
-                    "type": "drink",
-                    "name": "beer",
-                    "quantity": 4,
-                    "unitPrice": 3.5
-                },
-                {
-                    "type": "dish",
-                    "name": "pizza",
-                    "quantity": 2,
-                    "unitPrice": 7.0
-                },
-                {
-                    "type": "dish",
-                    "name": "pasta",
-                    "quantity": 2,
-                    "unitPrice": 10.0
-                }
-            ]
+          "type": "drink",
+          "name": "water",
+          "quantity": 1,
+          "unitPrice": 1.0
         },
         {
-            "customer": "Franco",
-            "type": "takeaway",
-            "orderTime": "2017-11-24 11:00",
-            "deliveryTime": "2017-11-24 12:00",
-            "address": "via ferrari 1",
-            "distance": "800 m",
-            "items": [
-                {
-                    "type": "dish",
-                    "name": "pizza",
-                    "quantity": 2,
-                    "unitPrice": 7.0
-                }
-            ]
-        },
-        {
-            "customer": "Mach",
-            "type": "takeaway",
-            "orderTime": "2017-11-25 12:00",
-            "deliveryTime": "2017-11-25 13:00",
-            "address": "route 66",
-            "distance": "4.2 km",
-            "items": [
-                {
-                    "type": "dish",
-                    "name": "pizza",
-                    "quantity": 8,
-                    "unitPrice": 7.0
-                }
-            ]
+          "type": "dish",
+          "name": "pizza",
+          "quantity": 3,
+          "unitPrice": 7.0
         }
-    ]
+      ]
+    },
+    {
+      "customer": "Guido",
+      "type": "pickup_in_store",
+      "orderTime": "2017-11-24 10:30",
+      "deliveryTime": "2017-11-24 12:30",
+      "items": [
+        {
+          "type": "drink",
+          "name": "beer",
+          "quantity": 4,
+          "unitPrice": 3.5
+        },
+        {
+          "type": "dish",
+          "name": "pizza",
+          "quantity": 2,
+          "unitPrice": 7.0
+        },
+        {
+          "type": "dish",
+          "name": "pasta",
+          "quantity": 2,
+          "unitPrice": 10.0
+        }
+      ]
+    },
+    {
+      "customer": "Franco",
+      "type": "takeaway",
+      "orderTime": "2017-11-24 11:00",
+      "deliveryTime": "2017-11-24 12:00",
+      "address": "via ferrari 1",
+      "distance": "800 m",
+      "items": [
+        {
+          "type": "dish",
+          "name": "pizza",
+          "quantity": 2,
+          "unitPrice": 7.0
+        }
+      ]
+    },
+    {
+      "customer": "Mach",
+      "type": "takeaway",
+      "orderTime": "2017-11-25 12:00",
+      "deliveryTime": "2017-11-25 13:00",
+      "address": "route 66",
+      "distance": "4.2 km",
+      "items": [
+        {
+          "type": "dish",
+          "name": "pizza",
+          "quantity": 8,
+          "unitPrice": 7.0
+        }
+      ]
+    }
+  ]
 }
